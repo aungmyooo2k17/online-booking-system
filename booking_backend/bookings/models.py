@@ -1,10 +1,5 @@
 from django.db import models
-
-
-class Car(models.Model):
-    model = models.CharField(max_length=100)
-    price_per_day = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.URLField()
+from inventory.models import Car
 
 
 class Booking(models.Model):

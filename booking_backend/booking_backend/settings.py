@@ -31,15 +31,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Your apps
+    'authentication',
+    'bookings',
+    'inventory',
+
+    # Third-party apps
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    # Django contrib apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'bookings',
-    'authentication',
+    'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE = [
@@ -49,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 AUTHENTICATION_BACKENDS = (

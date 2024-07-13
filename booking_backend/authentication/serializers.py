@@ -16,3 +16,15 @@ class CustomUserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = CustomUser.objects.create_user(**validated_data)
         return user
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['id', 'username', 'first_name', 'last_name',
+                  'email', 'dob', 'have_driving_license']
+
+    def update(self, instance, validated_data):
+        # Update user instance
+        instance = super().update(instance, validated_data)
+        return instance

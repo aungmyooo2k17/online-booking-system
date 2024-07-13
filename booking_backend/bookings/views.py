@@ -1,11 +1,6 @@
 from rest_framework import viewsets, permissions
 from .models import Car, Booking
-from .serializers import CarSerializer, BookingSerializer
-
-
-class CarViewSet(viewsets.ModelViewSet):
-    queryset = Car.objects.all()
-    serializer_class = CarSerializer
+from .serializers import BookingSerializer
 
 
 class BookingViewSet(viewsets.ModelViewSet):
