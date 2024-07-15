@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 
-const Navbar = ({ handleFilterClick, handleLogout }) => {
+const Navbar = ({ handleLogout }) => {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
-  const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  // Check if the current location is the home page ("/")
-  const isHomePage = location.pathname === "/";
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -24,14 +20,6 @@ const Navbar = ({ handleFilterClick, handleLogout }) => {
         </Link>
       </div>
       <div className="flex items-center">
-        {isHomePage && (
-          <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded lg:hidden mr-4"
-            onClick={handleFilterClick}
-          >
-            <FontAwesomeIcon icon={faFilter} /> Filter
-          </button>
-        )}
         {currentUser && (
           <div className="relative">
             <button

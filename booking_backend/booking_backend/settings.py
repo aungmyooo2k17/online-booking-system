@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'inventory',
 
     # Third-party apps
+    'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
 
@@ -54,7 +55,10 @@ INSTALLED_APPS = [
 ]
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:9000',
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

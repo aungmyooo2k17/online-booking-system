@@ -35,22 +35,12 @@ const MainLayout = () => {
   return (
     <>
       <div className="min-h-screen bg-gray-100">
-        <Navbar handleFilterClick={handleFilterClick} handleLogout={handleLogout} />
-        <div
-          className={`fixed inset-0 bg-gray-900 bg-opacity-50 z-10 ${
-            isFilterVisible ? "block" : "hidden"
-          }`}
-          onClick={handleFilterClick}
-        ></div>
-        <div className="p-4 lg:p-8 flex flex-col lg:flex-row">
-          <FilterForm
-            close={handleFilterClick}
-            isVisible={isFilterVisible}
-            handleFilterClick={handleSubmitFilter}
-          />
-          <div className="w-full lg:ml-8">
-            <Outlet />
-          </div>
+        <Navbar
+          handleFilterClick={handleFilterClick}
+          handleLogout={handleLogout}
+        />
+        <div className="w-full">
+          <Outlet />
         </div>
       </div>
 

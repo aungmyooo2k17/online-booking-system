@@ -23,14 +23,18 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path={`/admin/${ROUTES.login}`} element={<AdminLoginPage />} />
+        <Route
+          exact
+          path={`/admin/${ROUTES.login}`}
+          element={<AdminLoginPage />}
+        />
         <Route path="/admin/*" element={<AdminMainLayout />}>
           <Route exact path={ROUTES.bookings} element={<BookingList />} />
           <Route exact path={ROUTES.cars} element={<CarList />} />
           <Route exact path={ROUTES.brands} element={<BrandList />} />
           <Route exact path={ROUTES.users} element={<UserList />} />
         </Route>
-        
+
         <Route exact path="/register" element={<RegisterPage />} />
         <Route exact path="/login" element={<LoginPage />} />
 
@@ -38,8 +42,6 @@ function App() {
           <Route exact path="" element={<HomePage />} />
           <Route exact path="mybookings" element={<MyBookingPage />} />
         </Route>
-        
-        
       </Routes>
     </Router>
   );

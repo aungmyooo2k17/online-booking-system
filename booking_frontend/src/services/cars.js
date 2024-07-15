@@ -6,7 +6,10 @@ const carApi = createApi({
   baseQuery: baseApi("inventory").baseQuery,
   endpoints: (builder) => ({
     getCars: builder.query({
-      query: () => "/cars/",
+      query: (filters) => ({
+        url: "/cars/",
+        params: filters,
+      }),
     }),
     getCar: builder.query({
       query: (id) => `/cars/${id}`,

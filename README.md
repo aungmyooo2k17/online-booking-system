@@ -96,7 +96,6 @@ Place the appropriate routing data in `App.js`.
 - `react-redux`
 - `@reduxjs/toolkit`
 - `react-router-dom`
-- `axios`
 - `tailwindcss`
 - `@fortawesome/react-fontawesome`
 
