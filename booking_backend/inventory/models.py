@@ -17,6 +17,7 @@ class Car(models.Model):
     no_of_seater = models.PositiveSmallIntegerField()
     engine_litre = models.DecimalField(max_digits=3, decimal_places=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    image = models.ImageField(upload_to='cars/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
