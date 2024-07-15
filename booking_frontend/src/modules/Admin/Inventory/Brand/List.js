@@ -40,8 +40,6 @@ const BrandList = () => {
           pageSize={10}
           handleEdit={handleEdit}
           handleDelete={handleDelete}
-          handleDetails={handleDetails}
-          linkToAdd={"create"}
         />
       )}
     </div>

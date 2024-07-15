@@ -9,14 +9,19 @@ import BookingModal from "./BookingModal";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal, openModal } from "../../services/modalSlice";
 import SuccessModal from "./SuccessModal";
+import { useNavigate } from "react-router-dom";
 
 const RentalCard = ({ car }) => {
   const currentUser  = useSelector((state) => state.currentUser.currentUser);
   const [showSuccessModal, setShowSuccessModal] = useState(false); // State for controlling SuccessModal visibility
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRentNowClick = () => {
+    if(!currentUser) {
+      navigate("/login");
+    }
     setModalOpen(true);
     dispatch(openModal());
   };

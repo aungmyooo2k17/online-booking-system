@@ -10,27 +10,25 @@ import AdminMainLayout from "./modules/Admin/AdminMainLayout";
 import MainLayout from "./modules/User/MainLayout";
 import BrandEdit from "./modules/Admin/Inventory/Brand/Edit";
 import { ROUTES } from "./constant";
-import RegisterPage from "./modules/Auth/Register";
-import LoginPage from "./modules/Auth/Login";
+import RegisterPage from "./modules/User/Auth/Register";
+import LoginPage from "./modules/User/Auth/Login";
 import BookingCreate from "./modules/Admin/Booking/Create";
 import BookingList from "./modules/Admin/Booking/List";
+import AdminLoginPage from "./modules/Admin/Auth/AdminLoginPage";
 import HomePage from "./modules/User/HomePage";
+import UserList from "./modules/Admin/User/List";
+import MyBookingPage from "./modules/User/MyBookingPage";
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route exact path={`/admin/${ROUTES.login}`} element={<AdminLoginPage />} />
         <Route path="/admin/*" element={<AdminMainLayout />}>
-          <Route exact path={ROUTES.inventory.createBooking} element={<BookingCreate />} />
-          <Route exact path={ROUTES.inventory.bookings} element={<BookingList />} />
-
-          <Route exact path={ROUTES.inventory.createCar} element={<CarCreate />} />
-          <Route exact path={ROUTES.inventory.editCar} element={<CarEdit />} />
-          <Route exact path={ROUTES.inventory.cars} element={<CarList />} />
-
-          <Route exact path={ROUTES.inventory.brands} element={<BrandList />} />
-          <Route exact path={ROUTES.inventory.createBrand} element={<BrandCreate />} />
-          <Route exact path={ROUTES.inventory.editBrand} element={<BrandEdit />} />
+          <Route exact path={ROUTES.bookings} element={<BookingList />} />
+          <Route exact path={ROUTES.cars} element={<CarList />} />
+          <Route exact path={ROUTES.brands} element={<BrandList />} />
+          <Route exact path={ROUTES.users} element={<UserList />} />
         </Route>
         
         <Route exact path="/register" element={<RegisterPage />} />
@@ -38,6 +36,7 @@ function App() {
 
         <Route path="/*" element={<MainLayout />}>
           <Route exact path="" element={<HomePage />} />
+          <Route exact path="mybookings" element={<MyBookingPage />} />
         </Route>
         
         

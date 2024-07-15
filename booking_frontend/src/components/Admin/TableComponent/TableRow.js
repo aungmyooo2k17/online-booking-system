@@ -4,6 +4,7 @@ import Action from "./Action";
 const TableRow = ({
   item,
   columns,
+  hideAction,
   handleEdit,
   handleDelete,
   handleDetails,
@@ -23,13 +24,16 @@ const TableRow = ({
           </p>
         </td>
       ))}
-      <td className="px-2.5 xl:px-5 py-2.5">
-        <Action
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-          handleDetails={handleDetails}
-        />
-      </td>
+      {!hideAction && (
+        <td className="px-2.5 xl:px-5 py-2.5">
+          <Action
+            item={item}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+            handleDetails={handleDetails}
+          />
+        </td>
+      )}
     </tr>
   );
 };

@@ -13,6 +13,7 @@ const Table = ({
   handleEdit,
   handleDelete,
   handleDetails,
+  hideAction = true,
 }) => {
   // State to manage current page
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -33,20 +34,22 @@ const Table = ({
         <h4 className="mb-6 text-xl font-bold text-black dark:text-white">
           {title}
         </h4>
-        {/* Add button nice button */}
-        <Link to={linkToAdd} className="btn btn-sm btn-primary">
-          Add New
-        </Link>
+        {linkToAdd && (
+          <Link to={linkToAdd} className="btn btn-sm btn-primary">
+            Add New
+          </Link>
+        )}
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-gray-100 dark:bg-strokemedium">
-          <TableHeader columns={columns} />
+          <TableHeader hideAction={hideAction} columns={columns} />
           <tbody>
             {currentData.map((item, index) => (
               <TableRow
                 key={index}
                 item={item}
                 columns={columns}
+                hideAction={hideAction}
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
                 handleDetails={handleDetails}

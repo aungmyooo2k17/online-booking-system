@@ -1,10 +1,12 @@
 import React from "react";
-import { useRegisterMutation } from "../../services/authentication";
-import Form from "../../components/Common/Form";
+import { useRegisterMutation } from "../../../services/authentication";
+import Form from "../../../components/Common/Form";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [register, { isLoading: registeringUser }] = useRegisterMutation();
+  const navigate = useNavigate();
 
   const initialState = {
     username: "",
@@ -70,17 +72,26 @@ const RegisterPage = () => {
   ];
 
   const handleSubmit = (formState) => {
-    register(formState);
+    register(formState).then((response) => {
+      if (response.data) {
+        reset();
+        navigate("/login");
+      }
+    });
+    
   };
 
   return (
-    <Form
-      onSubmit={handleSubmit}
-      methods={methods}
-      initialState={initialState}
-      submitButtonText="Register"
-      fields={fields}
-    />
+    <div className="w-125 h-screen items-center justify-center mx-auto">
+      <Form
+        onSubmit={handleSubmit}
+        methods={methods}
+        initialState={initialState}
+        submitButtonText="Register"
+        fields={fields}
+        FormTitle={"User Registration"}
+      />
+    </div>
   );
 };
 

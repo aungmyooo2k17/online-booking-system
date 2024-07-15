@@ -1,9 +1,9 @@
 import React from "react";
-import { useLoginMutation } from "../../services/authentication";
-import Form from "../../components/Common/Form";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../../../services/authentication";
+import Form from "../../../components/Common/Form";
 
 const LoginPage = () => {
   const [login] = useLoginMutation();
@@ -16,7 +16,6 @@ const LoginPage = () => {
   };
   const methods = useForm({ defaultValues: initialState });
   const { reset } = methods;
-  
 
   const fields = [
     {
@@ -45,13 +44,21 @@ const LoginPage = () => {
   };
 
   return (
-    <Form
-      onSubmit={handleSubmit}
-      methods={methods}
-      initialState={initialState}
-      submitButtonText="Login"
-      fields={fields}
-    />
+    <div className="w-100 h-screen items-center justify-center mx-auto">
+      <Form
+        onSubmit={handleSubmit}
+        methods={methods}
+        initialState={initialState}
+        submitButtonText="Login"
+        fields={fields}
+        FormTitle={"User Login"}
+      />
+      <div className="mt-4">
+        <Link to="/register" className="text-blue-500 hover:text-blue-700">
+          Don't have an account? Sign up
+        </Link>
+      </div>
+    </div>
   );
 };
 

@@ -11,10 +11,10 @@ const AdminMainLayout = () => {
         <div className="container mx-auto flex justify-between items-center">
           <Link className="text-white text-xl font-bold" to="/admin">Admin Dashboard</Link>
           <div className="flex">
-            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.inventory.cars}`}>Cars</Link>
-            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.inventory.bookings}`}>Bookings</Link>
-            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.inventory.brands}`}>Brands</Link>
-            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.inventory.users}`}>Users</Link>
+            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.cars}`}>Cars</Link>
+            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.bookings}`}>Bookings</Link>
+            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.brands}`}>Brands</Link>
+            <Link className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to={`/admin/${ROUTES.users}`}>Users</Link>
           </div>
         </div>
       </nav>

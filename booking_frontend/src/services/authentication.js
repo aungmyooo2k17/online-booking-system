@@ -45,6 +45,34 @@ const authApi = createApi({
         }
       },
     }),
+    logout: builder.mutation({
+      query: () => ({
+        url: "/logout/",
+        method: "POST",
+      }),
+    }),
+    adminLogin: builder.mutation({
+      query: (credentials) => ({
+        url: "/login-admin/",
+        method: "POST",
+        body: credentials,
+      }),
+      // Handle token saving after successful login
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          console.log("Login success response:", data);
+          const token = data.token; // Adjust based on your actual response structure
+          if (token) {
+            localStorage.setItem("token", token);
+            dispatch(setToken(token));
+            dispatch(userApi.endpoints.profile.initiate());
+          }
+        } catch (error) {
+          console.error("Login error:", error);
+        }
+      },
+    }),
     register: builder.mutation({
       query: (userData) => ({
         url: "/register/",
@@ -55,6 +83,6 @@ const authApi = createApi({
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useAdminLoginMutation, useLoginMutation, useRegisterMutation, useLogoutMutation } = authApi;
 
 export default authApi;
