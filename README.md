@@ -51,6 +51,28 @@ Please note that the username and password for the admin dashboard are:
 Username: admin
 Password: admin
 
+# How to Use the Website
+
+### End User Site
+
+- **Home Page** (`/`)
+  - The home page serves as the main entry point to the website. It displays a filter form and a list of available cars to rent.
+  - **Filter Form**: Use this form to search for cars based on your preferences.
+  - **List of Available Cars**: Browse through the list of cars available for rent.
+  - **Rent Now Button**: 
+    - If you are not logged in, clicking the "Rent Now" button will redirect you to the login page.
+    - If you don't have an account, you can go to the registration page using the link provided on the login page.
+    - If you are logged in and click the "Rent Now" button from the car rent list, a dialog will appear where you can choose the start and end date for your booking and confirm your reservation.
+
+### Admin Site
+
+- **Admin Login Page** (`/admin/login`)
+  - This page allows administrators to log in to the system.
+  - Once the correct credentials are entered, the system will redirect to the table pages where you can see the list of users, cars, and bookings.
+
+### Note
+- Error handling is not fully implemented yet. For example, if the username or password is incorrect, an error message will not appear. This will be updated as soon as possible.
+
 
 # Frontend Project Structure
 
