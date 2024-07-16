@@ -1,10 +1,11 @@
-// AdminMainLayout.js
-
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { ROUTES } from '../../constant';
+import { useSelector } from 'react-redux';
+import { useProfileQuery } from '../../services/authentication';
 
 const AdminMainLayout = () => {
+
+  const { data } = useProfileQuery();
   return (
     <div>
       <nav className="bg-gray-800 p-4">
