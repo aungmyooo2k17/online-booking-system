@@ -11,13 +11,19 @@ const authApi = createApi({
   }),
   endpoints: (builder) => ({
     profile: builder.query({
-      query: () => "/profile/",
+      query: () => ({
+        url: "/profile/",
+        headers: {
+          Authorization: `Token ${localStorage.getItem("token")}`, 
+        },
+      }),
       providesTags: ["Profile"],
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
           console.log("Profile response:", data);
           dispatch(setToken(data.token));
+          dispatch(saveCurrentUser(data));
         } catch (error) {
           console.error("Profile error:", error);
         }
