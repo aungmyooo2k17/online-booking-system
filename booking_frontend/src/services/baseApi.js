@@ -6,7 +6,7 @@ const baseApi = (path) => ({
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_URL}/${path}`,
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().token.token;
+      const token = localStorage.getItem("token");
 
       if (token) {
         headers.set("Authorization", `Token ${token}`);
